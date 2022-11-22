@@ -26,7 +26,10 @@ public class Client {
     private String email ;
     private  String password;
 
-
+    @Enumerated(EnumType.STRING)
+    private CategorieClient categorieClient;
+    @Enumerated(EnumType.STRING)
+    private Profession profession;
     @OneToMany(mappedBy = "client")
     List<Facture> facture ;
 

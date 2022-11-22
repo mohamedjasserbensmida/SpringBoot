@@ -1,5 +1,6 @@
 package com.example.mohamedjasserbensmida.controllers;
 
+import com.example.mohamedjasserbensmida.entities.CategorieClient;
 import com.example.mohamedjasserbensmida.entities.Client;
 import com.example.mohamedjasserbensmida.entities.Facture;
 import com.example.mohamedjasserbensmida.services.ClientService;
@@ -7,7 +8,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
 
-
+import java.util.Date;
 import java.util.List;
 @RestController
 @RequestMapping("client")
@@ -32,4 +33,9 @@ public class ClientRestController {
     public Client updateClient(Client c){return  clientService.updateClient(c); }
     @GetMapping("Facture/{idc}")
     public List<Facture> getFacturesByClient(Long idClient){return clientService.getFacturesByClient(idClient);}
+    @GetMapping ("/{categorieClient}/{startDate}/{endDate}")
+    public float getChiffreAffaireParCategorieClient(@PathVariable(value = "categorieClient") CategorieClient categorieClient, @PathVariable(value = "startDate") Date startDate, @PathVariable(value = "endDate") Date endDate)
+    {
+        return clientService.getChiffreAffaireParCategorieClient(categorieClient,startDate,endDate);
+    }
 }

@@ -2,6 +2,7 @@ package com.example.mohamedjasserbensmida.services;
 
 import com.example.mohamedjasserbensmida.entities.Produit;
 
+import java.util.Date;
 import java.util.List;
 
 public interface ProduitService {
@@ -13,4 +14,6 @@ public interface ProduitService {
     Produit retrieveProduit(Long id);
 
     public void assignFournisseurToProduit(Long fournisseurId, Long produitId) ;
+
+    float getRevenuBrutProduit(Long idProduit, Date startDate, Date endDate);
 }
